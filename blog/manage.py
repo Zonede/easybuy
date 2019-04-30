@@ -3,7 +3,7 @@ from flask_script import Manager
 from flask_session import Session
 
 from back.views import back_blueprint
-from web.views import web_blueprint
+# from web.views import web_blueprint
 from back.models import db
 from flask import Blueprint
 import redis
@@ -12,8 +12,8 @@ import redis
 
 app=Flask(__name__)
 
-app.register_blueprint(blueprint=back_blueprint,url_prefix='/back')
-app.register_blueprint(blueprint=web_blueprint,url_prefix='/web')
+app.register_blueprint(blueprint=back_blueprint)
+
 
 
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Justdoit886@127.0.0.1:3306/blog1'

@@ -12,7 +12,6 @@
 <script src="/static/back/js/jquery-2.1.4.min.js"></script>
 {% endblock %}
 
-
 {% block header %}
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -29,7 +28,7 @@
                 <li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>
               </ul>
             </li>
-            <li><a href="{{ url_for('back.logout') }}" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="{{ url_for('back.index') }}" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
             <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>
           </ul>
           <form action="" method="post" class="navbar-form navbar-right" role="search">
@@ -52,9 +51,9 @@
         <li><a href="{{ url_for('back.index') }}">信息</a></li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li class="active"><a href="{{ url_for('back.article') }}">文章</a></li>
+        <li class="active"><a href="{{ url_for('back.index_article') }}">文章</a></li>
         <li><a href="{{ url_for('back.notice') }}">公告</a></li>
-        <li><a href="{{ url_for('back.comment') }}">评论</a></li>
+        <li><a href="{{ url_for('back.flink') }}">评论</a></li>
         <li><a data-toggle="tooltip" data-placement="top" title="网站暂无留言功能">留言</a></li>
       </ul>
       <ul class="nav nav-sidebar">
@@ -62,7 +61,7 @@
         <li><a class="dropdown-toggle" id="otherMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</a>
           <ul class="dropdown-menu" aria-labelledby="otherMenu">
             <li><a href="{{ url_for('back.flink') }}">友情链接</a></li>
-            <li><a href="{{ url_for('back.loginlog') }}">访问记录</a></li>
+            <li><a href="{{ url_for('back.setting') }}">访问记录</a></li>
           </ul>
         </li>
       </ul>
@@ -70,15 +69,15 @@
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
           <ul class="dropdown-menu" aria-labelledby="userMenu">
             <li><a href="#">管理用户组</a></li>
-            <li><a href="{{ url_for('back.manage_user') }}">管理用户</a></li>
+            <li><a href="{{ url_for('back.setting') }}">管理用户</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="{{ url_for('back.loginlog') }}">管理登录日志</a></li>
+            <li><a href="{{ url_for('back.add_article') }}">管理登录日志</a></li>
           </ul>
         </li>
         <li><a class="dropdown-toggle" id="settingMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">设置</a>
           <ul class="dropdown-menu" aria-labelledby="settingMenu">
-            <li><a href="{{ url_for('back.setting') }}">基本设置</a></li>
-            <li><a href="{{ url_for('back.readset') }}">用户设置</a></li>
+            <li><a href="{{ url_for('back.add_article') }}">基本设置</a></li>
+            <li><a href="{{ url_for('back.add_article') }}">用户设置</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">安全配置</a></li>
             <li role="separator" class="divider"></li>
@@ -263,4 +262,3 @@ function show() {alert("此功能暂未实现，Thanks♪(･ω･)ﾉ")}
 
 
 
->

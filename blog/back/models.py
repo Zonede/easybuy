@@ -15,8 +15,24 @@ class User(db.Model):
 
     __tablename__='user'
 
-    def save(self):
-        db.session.add(self)
+class Category(db.Model):
+    __tablename__='category'
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    c_name = db.Column(db.String(20),unique=True)
+    arts = db.relationship('Article',backref='category')
+
+class Article(db.Model):
+    __tablename__='article'
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    title = db.Column(db.String(100),unique=True)
+    content = db.Column(db.Text,nullable=False)
+    desc = db.Column(db.String(100),nullable=False)
+    type = db.Column(db.Integer,db.ForeignKey('category.id'))
+
+
+
+    def save(user):
+        db.session.add(user)
         db.session.commit()
 
 

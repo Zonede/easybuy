@@ -1,19 +1,21 @@
 from flask import Flask
+from flask import Blueprint
 
 app = Flask(__name__)
+blue=Blueprint('blue',__name__)
+app.register_blueprint(blueprint=blue,url_prefix='/blue')
 
-
-@app.route('/')
+@blue.route('/')
 def index():
     return 'index'
 
 
-@app.route('/list2')
+@blue.route('/list2')
 def list():
     return 'list'
 
 
-@app.route('/detail')
+@blue.route('/detail')
 def detail():
     return 'detail'
 

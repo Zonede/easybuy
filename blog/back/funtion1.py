@@ -3,7 +3,7 @@ from functools import wraps
 from flask import session, url_for
 from werkzeug.utils import redirect
 
-
+#可以接收多个参数
 def is_login(func):
     @wraps(func)
     def check():
